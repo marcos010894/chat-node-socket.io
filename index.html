@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>teste 222</h1>
+
+    <input type="text" id="name"><br><br>
+    <input type="text" id="msg"><br><br>
+    <button onclick="chamaBtn()" style="width: 80px; height: 80px; color: white; background-color: blue; cursor: pointer;">Teste io</button>
+
+
+    <div id="recebeMensage">
+
+    </div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io("localhost:5000")
+    function chamaBtn(){        
+        let name = document.getElementById('name').value
+        let msg = document.getElementById('msg').value
+        socket.emit('distribution',{
+            name: name,
+            menssage: msg,
+            id: socket.id
+        })
+    }
+
+    socket.on('connection', (data) => {
+            console.log(data);
+    })
+
+    socket.on('distribution', (data) => {
+        document.getElementById('recebeMensage').innerHTML += `
+            ${data.name } ${data.menssage } ${data.id}  <br>
+        `
+    })
+
+
+</script>
+</body>
+</html>
+
