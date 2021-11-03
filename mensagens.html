@@ -7,7 +7,7 @@
      name='viewport' 
      content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
     <title>Mensagens</title>
-    <link rel="stylesheet" href="style">
+    <link rel="stylesheet" href="css/styled.css">
 </head>
 <body>
     <header>
@@ -150,46 +150,17 @@
                 </div>
 
                 <div id="btnSend">
-                    <button class="send" onclick="chamaBtn()">
+                    <button class="send" onclick="insertMensage()">
                         Enviar
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    <script src="js"></script>
+    <script src="js/mains.js"></script>
     <script src="ckeditor/ckeditor/ckeditor.js"></script>
     <script>
 	    CKEDITOR.replace( 'txtMensage' );
     </script>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-    var myname = prompt('Qual o seu nome')
-
-    var myid;
-    const socket = io("localhost:5000")
-    function chamaBtn(){        
-        socket.emit('distribution',{
-            name: myname,
-            msg : CKEDITOR.instances.txtMensage.getData(),
-            id: socket.id
-        })
-        myid = socket.id;
-    }
-    socket.on('connection', (data) => {
-            console.log(data);
-
-    })
-    socket.on('distribution', (data) => {
-        let nameClass;
-        if(data.id != myid){
-            nameClass = 'idDiferente';
-        }else{
-            nameClass = 'idIgual';
-        }
-        insertMensage(data.id, data.name, data.msg , nameClass)
-    })
-</script>
 </body>
 </html>
-

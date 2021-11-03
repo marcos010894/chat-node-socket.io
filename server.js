@@ -14,6 +14,7 @@ const io = require('socket.io')(http, {
         res.end();
     }
 })
+app.use('/ckeditor', express.static('ckeditor'))
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html' )
 })
@@ -29,3 +30,12 @@ io.on('connection', (socket) => {
 http.listen(PORT, () => {
     console.log('listemPort', PORT)
 })
+
+app.get('/style', (req, res) => {
+    res.sendFile(__dirname+ '/css/styled.css')
+})
+
+app.get('/js', (req, res) => {
+    res.sendFile(__dirname+  '/js/mains.js')
+}) 
+
