@@ -14,6 +14,9 @@ const io = require('socket.io')(http, {
         res.end();
     }
 })
+
+io.set('origins', '*:*');
+
 app.use('/ckeditor', express.static('ckeditor'))
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html' )

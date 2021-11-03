@@ -168,7 +168,6 @@
 
     var myid;
     const socket = io("localhost:5000")
-    const io = require('socket.io')(server, { origins: '*:*'});
     function chamaBtn(){        
         socket.emit('distribution',{
             name: myname,
