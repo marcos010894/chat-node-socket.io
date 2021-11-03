@@ -167,7 +167,7 @@
     var myname = prompt('Qual o seu nome')
 
     var myid;
-    const socket = io("localhost:5000")
+    const socket = io("vegasmorreaqui.herokuapp.com")
     function chamaBtn(){        
         socket.emit('distribution',{
             name: myname,
