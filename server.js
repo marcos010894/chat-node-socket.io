@@ -8,14 +8,13 @@ const io = require('socket.io')(http, {
         const headers = {
             "Access-Control-Allow-Headers": "Content-Type, Authorization",
             "Access-Control-Allow-Origin": req.headers.origin, //or the specific origin you want to give access to,
-            "Access-Control-Allow-Credentials": true
+            "Access-Control-Allow-Credentials": true,
+            'origins': '*:*'
         };
         res.writeHead(200, headers);
         res.end();
     }
 })
-
-io.set('origins', '*:*');
 
 app.use('/ckeditor', express.static('ckeditor'))
 app.get('/', (req, res) => {
