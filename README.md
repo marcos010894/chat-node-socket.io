@@ -11,4 +11,4 @@
 
 
 # tecnologias
-### `Um projeto construido com NodeJS e Socket IO. Para simular uma conversar em grupo de tempo real !` 
+### `Um projeto construido com NodeJS e Socket IO. Para simular uma conversar em grupo de tempo real !`. 
