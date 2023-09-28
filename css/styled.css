@@ -11,7 +11,7 @@ body, html{
 }
 header{
     height: 50px;
-    background-color: blue;
+    background-color: rgb(38, 107, 38);
 }
 .container_{
     margin: auto;
@@ -38,7 +38,7 @@ header{
     flex-direction: row;
     padding: 3%;
     border-radius: 8px;
-    background-color: rgb(225, 225, 255);
+    background-color: rgb(235, 251, 235);
     cursor: pointer;
 
 }
@@ -96,7 +96,7 @@ header{
     display: flex;
     flex-direction: column;
     border-radius: 15px;
-    background-color: rgb(211, 211, 255);
+    background-color: rgb(154, 243, 154);
     max-width: 25%;
     margin-top: 15px;
     margin-left: 15px;
